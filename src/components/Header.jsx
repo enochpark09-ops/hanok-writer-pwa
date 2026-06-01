@@ -1,4 +1,4 @@
-const VERSION = 'v1.3'
+const VERSION = 'v1.4'
 
 export default function Header({ tab, setTab }) {
   return (

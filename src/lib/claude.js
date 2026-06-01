@@ -75,7 +75,7 @@ export async function generateContent({ category, channel, keywords, memo, apiKe
         'anthropic-dangerous-direct-browser-access': 'true'
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 2000,
         stream: true,
         messages: [{ role: 'user', content: prompt }]
@@ -84,7 +84,9 @@ export async function generateContent({ category, channel, keywords, memo, apiKe
 
     if (!res.ok) {
       const err = await res.json()
-      throw new Error(err.error?.message || '오류가 발생했어요')
+      const msg = err.error?.message || '오류가 발생했어요'
+      if (msg.includes('model')) throw new Error('API 키를 확인해줘 (설정 탭)')
+      throw new Error(msg)
     }
 
     const reader = res.body.getReader()
