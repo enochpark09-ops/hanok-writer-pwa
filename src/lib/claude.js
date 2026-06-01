@@ -1,3 +1,5 @@
+import { HANOK_BIBLE } from './bible'
+
 const CHANNEL_GUIDE = {
   wordpress: {
     label: 'WordPress 블로그',
@@ -6,7 +8,7 @@ const CHANNEL_GUIDE = {
 - 소제목(H2) 2~3개 포함
 - SEO 메타설명(160자 이내) 별도 출력
 - 추천 태그 4~5개 출력
-- 마지막에 "📍 정보" 또는 "온도 한 줄 평" 포함
+- 마지막에 짧은 여운 문장으로 마무리
 - 감성 에세이 스타일, 1인칭`
   },
   x: {
@@ -37,9 +39,11 @@ const CATEGORY_LABEL = {
 
 export function buildPrompt({ category, channel, keywords, memo }) {
   const ch = CHANNEL_GUIDE[channel]
-  return `당신은 HanokWriter입니다. onedo4u.com 블로그 브랜드 "온도(溫度)"의 전속 글쓰기 에이전트입니다.
+  return `${HANOK_BIBLE}
 
-브랜드 톤: 따뜻하고 감성적이며, 직접 경험에서 우러나오는 진솔한 라이프스타일 글쓰기. 절대 AI가 쓴 것처럼 느껴지면 안 됩니다.
+---
+
+위 바이블에 따라 hanok의 글을 작성해줘.
 
 [글쓰기 요청]
 카테고리: ${CATEGORY_LABEL[category]}
@@ -50,7 +54,7 @@ ${memo ? `추가 메모: ${memo}` : ''}
 [채널 가이드]
 ${ch.guide}
 
-위 조건에 맞게 바로 글을 작성해주세요. 설명이나 전문 없이 글 본문부터 시작하세요.`
+설명이나 전문 없이 글 본문부터 바로 시작해줘.`
 }
 
 export async function generateContent({ category, channel, keywords, memo, apiKey, onChunk, onDone, onError }) {
