@@ -72,8 +72,10 @@ export default function SettingsPage() {
         ))}
       </div>
 
-      <p style={{ fontSize: 11, color: 'var(--text3)', marginTop: 20, textAlign: 'center' }}>
-        HanokWriter v1.2 · 하녹 · Double Y Space
+      <p style={{ fontSize: 11, color: 'var(--text3)', marginTop: 20, textAlign: 'center', lineHeight: 1.7, fontStyle: 'italic' }}>
+            시공간을 넘어, 가장 먼 곳에서<br />세상의 모든 이야기를 관찰하고 기록(遐錄)합니다.<br /><br /></p>
+      <p style={{ fontSize: 11, color: 'var(--text3)', textAlign: 'center' }}>
+        HanokWriter v1.3 · 하녹 · Double Y Space
       </p>
     </div>
   )
