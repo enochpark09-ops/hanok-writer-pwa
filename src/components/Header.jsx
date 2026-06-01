@@ -1,3 +1,5 @@
+const VERSION = 'v1.2'
+
 export default function Header({ tab, setTab }) {
   return (
     <header style={{
@@ -7,10 +9,11 @@ export default function Header({ tab, setTab }) {
     }}>
       <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 16px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 52 }}>
-          <span style={{ fontWeight: 700, fontSize: 17, letterSpacing: '-0.3px' }}>
-            HanokWriter
-          </span>
-          <span style={{ fontSize: 11, color: 'var(--text3)', letterSpacing: '0.05em' }}>온도(溫度)</span>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+            <span style={{ fontWeight: 700, fontSize: 17, letterSpacing: '-0.3px' }}>HanokWriter</span>
+            <span style={{ fontSize: 10, color: 'var(--text3)', fontFamily: 'monospace' }}>{VERSION}</span>
+          </div>
+          <span style={{ fontSize: 11, color: 'var(--text3)', letterSpacing: '0.03em' }}>하녹</span>
         </div>
         <div style={{ display: 'flex', gap: 0, marginBottom: -1 }}>
           {[['write', '글쓰기'], ['history', '히스토리'], ['settings', '설정']].map(([key, label]) => (

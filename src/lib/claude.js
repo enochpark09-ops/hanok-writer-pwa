@@ -1,4 +1,4 @@
-import { HANOK_BIBLE } from './bible'
+import { LIFESTYLE_BIBLE, ESSAY_BIBLE } from './bible'
 
 const CHANNEL_GUIDE = {
   wordpress: {
@@ -37,13 +37,18 @@ const CATEGORY_LABEL = {
   essay: '철학·에세이 (단상·사유)'
 }
 
+function getBible(category) {
+  return category === 'lifestyle' ? LIFESTYLE_BIBLE : ESSAY_BIBLE
+}
+
 export function buildPrompt({ category, channel, keywords, memo }) {
   const ch = CHANNEL_GUIDE[channel]
-  return `${HANOK_BIBLE}
+  const bible = getBible(category)
+  return `${bible}
 
 ---
 
-위 바이블에 따라 hanok의 글을 작성해줘.
+위 바이블에 따라 하녹의 글을 작성해줘.
 
 [글쓰기 요청]
 카테고리: ${CATEGORY_LABEL[category]}

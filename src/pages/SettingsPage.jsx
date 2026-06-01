@@ -73,7 +73,7 @@ export default function SettingsPage() {
       </div>
 
       <p style={{ fontSize: 11, color: 'var(--text3)', marginTop: 20, textAlign: 'center' }}>
-        HanokWriter v1.0 · Double Y Space
+        HanokWriter v1.2 · 하녹 · Double Y Space
       </p>
     </div>
   )
